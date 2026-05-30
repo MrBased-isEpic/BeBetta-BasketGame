@@ -4,13 +4,14 @@ using UnityEngine;
 public class FallingObjectSO : ScriptableObject
 {
     public int value;
-    public BONUS bonus;
+    public EFFECT effect;
     public Sprite sprite;
 }
 
-public enum BONUS
+public enum EFFECT
 {
     None,
+    Damage,
     Invincible,
     DoubleScore
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Basket : MonoBehaviour, IGameObj
 {
-    private float halfWidth;
+    public float halfWidth {get; private set; }
     [SerializeField] private RectTransform _basketVisual;
 
     public void GStart()

@@ -2,17 +2,24 @@ using UnityEngine;
 
 public class FallingObjectManager : MonoBehaviour, IGameObj
 {
+    [Tooltip("Spawn per second")]
     [SerializeField] private float spawnRate;
+    [Tooltip("Pixels per second")]
     [SerializeField] private float moveSpeed;
 
+    
     [SerializeField] private FallingObjectSO[] FObjectSos;
     
     private FallingObject[] fallingObjects;
+    
+    private Basket basket;
 
     public void GStart()
     {
         spawnInterval = 1/spawnRate;
         fallingObjects = GetComponentsInChildren<FallingObject>();
+
+        basket = GameManager.Instance.basket;
     }
 
     public void GUpdate()
@@ -22,7 +29,7 @@ public class FallingObjectManager : MonoBehaviour, IGameObj
         TrackSpawning();
     }
 
-    #region ChildManagement
+    #region ChildUpdate
     
     private void UpdateFOs()
     {
@@ -31,10 +38,21 @@ public class FallingObjectManager : MonoBehaviour, IGameObj
             if(!fallingObject.gameObject.activeSelf) continue;
             
             fallingObject.Move(moveSpeed);
+            
+            if(!fallingObject.isInCatchRange) continue;
+            
+            Vector2 catchRange = new Vector2(basket.transform.position.x - (basket.halfWidth - fallingObject.halfWidth),
+                basket.transform.position.x + (basket.halfWidth - fallingObject.halfWidth));
+
+            if (fallingObject.transform.position.x < catchRange.x ||
+                fallingObject.transform.position.x > catchRange.y) continue;
+            
+            GameManager.Instance.ItemCaught(fallingObject.FallingObjectSO);
+            
+            fallingObject.Despawn();
         }
     }
     
-    private int activeFallingObjects;
     private float timer = 0;
     private float spawnInterval;
     
@@ -56,17 +74,12 @@ public class FallingObjectManager : MonoBehaviour, IGameObj
 
             if (fallingObject.hasFallen)
             {
-                activeFallingObjects--;
                 fallingObject.Despawn();
             }
         }
     }
     private void SpawnFO()
     {
-        if (activeFallingObjects == fallingObjects.Length) return;
-            
-        activeFallingObjects++;
-
         foreach (FallingObject fallingObject in fallingObjects)
         {
             if (fallingObject.gameObject.activeSelf) continue;
@@ -78,4 +91,6 @@ public class FallingObjectManager : MonoBehaviour, IGameObj
     }
     
     #endregion
+    
+    
 }
