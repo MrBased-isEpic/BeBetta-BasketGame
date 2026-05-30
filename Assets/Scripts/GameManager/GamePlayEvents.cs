@@ -23,4 +23,15 @@ public partial class GameManager
 
         liveBoard.RemoveLife();
     }
+
+    public void PauseButtonClicked()
+    {
+        Debug.Log("PAUSE BUTTON CLICKED");
+        TransitionTo(GameStateType.Paused);
+    }
+    
+    public void GameOver()
+    {
+        TransitionTo(GameStateType.Ended);
+    }
 }

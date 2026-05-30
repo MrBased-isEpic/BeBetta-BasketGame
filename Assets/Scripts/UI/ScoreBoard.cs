@@ -10,7 +10,7 @@ public class ScoreBoard : MonoBehaviour
     public void AddScore(int score)
     {
         this.score += score;
-        scoreText.text = this.score.ToString();
+        scoreText.text = this.score.ToString("0000");
     }
 
     public void Reset()

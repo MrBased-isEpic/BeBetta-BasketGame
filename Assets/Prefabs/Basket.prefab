@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.61960787, g: 0.36078432, b: 0.36078432, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -124,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97bd0d1163faabc4788c872f95bc3257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Basket
-  itemPadding: 112.1
   _basketVisual: {fileID: 6324391565808506706}
 --- !u!1 &7432381923090988688
 GameObject:
@@ -185,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.61960787, g: 0.36078432, b: 0.36078432, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -262,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.6226415, g: 0.36124957, b: 0.36124957, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

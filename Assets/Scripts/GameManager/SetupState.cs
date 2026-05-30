@@ -7,9 +7,13 @@ public class SetupState : IGameState
         manager.scoreBoard.Reset();
         manager.liveBoard.Reset();
         
+        manager.timerBoard.GStart();
+        
         manager.inputManager.GStart();
         manager.basket.GStart();
         manager.fallingObjectManager.GStart();
+        
+        manager.pageManager.Initialize();
         
         manager.TransitionTo(GameStateType.Playing);
     }
