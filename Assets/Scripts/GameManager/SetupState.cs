@@ -7,6 +7,9 @@ public class SetupState : IGameState
         manager.scoreBoard.Reset();
         manager.liveBoard.Reset();
         
+        manager.twoXImage.Disable();
+        manager.invincibilityImage.Disable();
+        
         manager.timerBoard.GStart();
         
         manager.inputManager.GStart();

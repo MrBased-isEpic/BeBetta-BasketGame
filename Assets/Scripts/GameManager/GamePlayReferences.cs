@@ -13,6 +13,10 @@ public partial class GameManager
     public LiveBoard liveBoard;
     public TimerBoard timerBoard;
     public Button pauseButton;
+    
+    [Space]
+    public TwoXImage twoXImage;
+    public InvincibilityImage invincibilityImage;
 
     [Space] public float gameTime;
     public float ScreenEdgePadding;

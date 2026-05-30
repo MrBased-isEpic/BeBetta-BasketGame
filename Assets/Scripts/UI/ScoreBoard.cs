@@ -16,6 +16,6 @@ public class ScoreBoard : MonoBehaviour
     public void Reset()
     {
         this.score = 0;
-        scoreText.text = "";
+        scoreText.text = "0000";
     }
 }
