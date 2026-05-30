@@ -9,6 +9,7 @@ public class FallingObjectManager : MonoBehaviour, IGameObj
 
     
     [SerializeField] private FallingObjectSO[] FObjectSos;
+    [SerializeField] private FallingObjectSO[] rareObjectSos;
     
     private FallingObject[] fallingObjects;
     
@@ -18,6 +19,11 @@ public class FallingObjectManager : MonoBehaviour, IGameObj
     {
         spawnInterval = 1/spawnRate;
         fallingObjects = GetComponentsInChildren<FallingObject>();
+
+        foreach (FallingObject fallingObject in fallingObjects)
+        {
+            fallingObject.Despawn();
+        }
 
         basket = GameManager.Instance.basket;
     }
@@ -75,6 +81,7 @@ public class FallingObjectManager : MonoBehaviour, IGameObj
             if (fallingObject.hasFallen)
             {
                 fallingObject.Despawn();
+                GameManager.Instance.ItemDropped(fallingObject.FallingObjectSO);
             }
         }
     }
@@ -84,7 +91,14 @@ public class FallingObjectManager : MonoBehaviour, IGameObj
         {
             if (fallingObject.gameObject.activeSelf) continue;
                 
-            FallingObjectSO SO = FObjectSos[Random.Range(0, FObjectSos.Length)];
+            float random =  Random.Range(0f, 1f);
+            FallingObjectSO SO;
+            
+            if(random <= .1f)
+                SO = rareObjectSos[Random.Range(0, rareObjectSos.Length)];
+            else
+                SO = FObjectSos[Random.Range(0, FObjectSos.Length)];
+            
             fallingObject.Spawn(Random.Range(0, Screen.width), SO);
             break;
         }

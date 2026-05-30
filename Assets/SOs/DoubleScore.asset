@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DoubleScore
   m_EditorClassIdentifier: Assembly-CSharp::FallingObjectSO
   value: 0
-  bonus: 2
+  effect: 1
   sprite: {fileID: 21300000, guid: 57f8befb92b364ca1bcae0f34c27e2d3, type: 3}

@@ -8,6 +8,7 @@ public partial class GameManager
     
     [Space]
     public ScoreBoard scoreBoard;
+    public LiveBoard liveBoard;
 
     [Space]
     public float ScreenEdgePadding;

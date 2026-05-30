@@ -4,6 +4,9 @@ public class SetupState : IGameState
     {
         GameManager manager = GameManager.Instance;
         
+        manager.scoreBoard.Reset();
+        manager.liveBoard.Reset();
+        
         manager.inputManager.GStart();
         manager.basket.GStart();
         manager.fallingObjectManager.GStart();
