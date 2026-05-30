@@ -18,9 +18,13 @@ public partial class GameManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
 
         InitializeStates();
+    }
+
+    private void OnDestroy()
+    {
+        Instance = null;
     }
 
     private void Start()
@@ -48,7 +52,7 @@ public partial class GameManager : MonoBehaviour
     {
         if (!_states.TryGetValue(stateType, out IGameState nextState))
         {
-            Debug.LogWarning($"[GameManager] State '{stateType}' not found.");
+            //Debug.LogWarning($"[GameManager] State '{stateType}' not found.");
             return;
         }
 
@@ -56,7 +60,7 @@ public partial class GameManager : MonoBehaviour
         _currentState = nextState;
         _currentState.Enter();
 
-        Debug.Log($"[GameManager] Entered state: {stateType}");
+        //Debug.Log($"[GameManager] Entered state: {stateType}");
     }
 
     public GameStateType GetCurrentStateType() => _currentStateType;

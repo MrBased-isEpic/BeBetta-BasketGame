@@ -23,8 +23,8 @@ public class TimerBoard : MonoBehaviour, IGameObj
 
         if (timer <= 0)
         {
-            GameManager.Instance.GameOver();
             timerText.text = "00:00";
+            GameManager.Instance.GameOver();
         }
 
     }

@@ -23,7 +23,7 @@ public class PausePage : Page
 
         quitButton.onClick.AddListener((() =>
         {
-    
+            SceneFlow.Instance.LoadMainMenuScene();
         }));
     }
 }

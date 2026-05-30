@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Page : MonoBehaviour
 {
+    public bool selfStart;
+    
     private bool initialized;
 
     protected PageManager PageManager;
@@ -16,6 +18,14 @@ public class Page : MonoBehaviour
     private GameObject fader;
     
     private AnimatorStateInfo clipInfo;
+
+    private void Awake()
+    {
+        if (!selfStart) return;
+        
+        Debug.Log("Self Start");
+        Setup();
+    }
    
     public void Setup()
     {

@@ -5,7 +5,7 @@ public class ScoreBoard : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
 
-    private int score;
+    public int score { get; private set; }
 
     public void AddScore(int score)
     {
