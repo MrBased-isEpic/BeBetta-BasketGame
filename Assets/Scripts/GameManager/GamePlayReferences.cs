@@ -17,6 +17,8 @@ public partial class GameManager
     [Space]
     public TwoXImage twoXImage;
     public InvincibilityImage invincibilityImage;
+    public Transform explosionObject;
+    public ImageAnimation explosionAnimator;
     
     [Space]
     public AudioClip music;

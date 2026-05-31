@@ -16,14 +16,16 @@ public partial class GameManager
             return;
         }
 
-        if (fallingObject.effect == EFFECT.Damage && basket.isInvincible)
+        if (fallingObject.effect == EFFECT.Damage && !basket.isInvincible)
         {
-            bool isAlive = liveBoard.RemoveLife();
+            liveBoard.RemoveAllLife();
             
             AudioManager.Instance.PlaySFX(lifeLostSFX);
+
+            explosionObject.transform.position = basket._basketVisual.transform.position;
+            explosionAnimator.Play();
             
-            if (!isAlive)
-                TransitionTo(GameStateType.Ended);
+            TransitionTo(GameStateType.Ended);
         }
 
         switch (fallingObject.effect)

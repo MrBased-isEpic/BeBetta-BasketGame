@@ -31,4 +31,14 @@ public class LiveBoard : MonoBehaviour
         
         return (lives > 0);
     }
+
+    public void RemoveAllLife()
+    {
+        lives = 0;
+        
+        for (int index = 0; index < lifeImages.Length; index++)
+        {
+            lifeImages[index].color = index > lives - 1 ? offColor : onColor;
+        }
+    }
 }

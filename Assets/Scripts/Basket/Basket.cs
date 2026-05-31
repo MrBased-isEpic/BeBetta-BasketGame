@@ -3,7 +3,7 @@ using UnityEngine;
 public class Basket : MonoBehaviour, IGameObj
 {
     public float halfWidth {get; private set; }
-    [SerializeField] private RectTransform _basketVisual;
+    public RectTransform _basketVisual;
     
     #region Powerups
     

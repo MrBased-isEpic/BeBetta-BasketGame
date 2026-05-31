@@ -10,7 +10,7 @@ public class FallingObject : MonoBehaviour
     public bool hasFallen => transform.position.y <= catchRange.x;
     public bool isInCatchRange => (transform.position.y <= catchRange.y && transform.position.y > catchRange.x);
 
-    private Vector2 catchRange = new Vector2(225, 332);
+    private Vector2 catchRange = new Vector2(268, 360);
 
 
     public FallingObjectSO FallingObjectSO {get; private set; }
@@ -25,7 +25,7 @@ public class FallingObject : MonoBehaviour
         halfWidth = (_visual.rect.width / 2) + GameManager.Instance.ScreenEdgePadding;
         xPos = Mathf.Clamp(xPos, halfWidth, Screen.width - halfWidth);
         
-        transform.position = new Vector3(xPos, Screen.height + _visual.rect.height/2, transform.position.z);
+        transform.position = new Vector3(xPos, 1719, transform.position.z);
     }
 
     public void Despawn()

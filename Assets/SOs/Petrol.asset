@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 363937ca736dd4c41a6f403f4f0da5c1, type: 3}
-  m_Name: DoubleScore
+  m_Name: Petrol
   m_EditorClassIdentifier: Assembly-CSharp::FallingObjectSO
   value: 0
-  effect: 3
-  sprite: {fileID: 21300000, guid: 73ce34841923ebb4abf5d8fc0e4e9c0f, type: 3}
+  effect: 2
+  sprite: {fileID: 4073714196424635485, guid: 16569c85e3ac4db49b21520212616724, type: 3}
