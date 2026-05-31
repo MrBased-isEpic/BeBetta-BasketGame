@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class MainMenuPage : Page
 {
+    [SerializeField] AudioClip music;
+    
     [SerializeField] private Button playButton;
     [SerializeField] private Button optionsButton;
     [SerializeField] private Button quitButton;
@@ -23,6 +25,8 @@ public class MainMenuPage : Page
         {
             Application.Quit();
         }));
+        
+        AudioManager.Instance.PlayMusic(music);
         
         base.Initialize();
     }

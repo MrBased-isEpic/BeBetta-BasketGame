@@ -19,6 +19,8 @@ public class SetupState : IGameState
         manager.pageManager.Initialize();
         
         manager.TransitionTo(GameStateType.Playing);
+        
+        AudioManager.Instance.PlayMusic(manager.music, .8f);
     }
 
     public void Update() {}

@@ -17,6 +17,18 @@ public partial class GameManager
     [Space]
     public TwoXImage twoXImage;
     public InvincibilityImage invincibilityImage;
+    
+    [Space]
+    public AudioClip music;
+
+    public AudioClip doubleScoreBeginSFX;
+    public AudioClip doubleScoreEndSFX;
+    
+    public AudioClip invincibilityBeginSFX;
+    public AudioClip invincibilityEndSFX;
+    
+    public AudioClip pointScoredSFX;
+    public AudioClip lifeLostSFX;
 
     [Space] public float gameTime;
     public float ScreenEdgePadding;

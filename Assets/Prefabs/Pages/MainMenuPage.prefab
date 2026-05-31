@@ -1184,6 +1184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuPage
   selfStart: 0
   content: {fileID: 0}
+  music: {fileID: 8300000, guid: df02bf236dabea744a22e3fd30d475ab, type: 3}
   playButton: {fileID: 7040098244869903311}
   optionsButton: {fileID: 1803652725862398682}
   quitButton: {fileID: 8068574637304532600}

@@ -23,7 +23,7 @@ public class Page : MonoBehaviour
     {
         if (!selfStart) return;
         
-        Debug.Log("Self Start");
+        //Debug.Log("Self Start");
         Setup();
     }
    

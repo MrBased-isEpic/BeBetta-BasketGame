@@ -47,8 +47,8 @@ public class FallingObjectManager : MonoBehaviour, IGameObj
             
             if(!fallingObject.isInCatchRange) continue;
             
-            Vector2 catchRange = new Vector2(basket.transform.position.x - (basket.halfWidth - fallingObject.halfWidth),
-                basket.transform.position.x + (basket.halfWidth - fallingObject.halfWidth));
+            Vector2 catchRange = new Vector2(basket.transform.position.x - (basket.halfWidth),
+                basket.transform.position.x + (basket.halfWidth));
 
             if (fallingObject.transform.position.x < catchRange.x ||
                 fallingObject.transform.position.x > catchRange.y) continue;

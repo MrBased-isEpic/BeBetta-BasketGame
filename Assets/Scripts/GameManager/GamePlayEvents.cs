@@ -10,11 +10,17 @@ public partial class GameManager
         //Debug.Log($"Caught {fallingObject.name}");
         scoreBoard.AddScore(basket.isDoubleScore ? fallingObject.value * 2 : fallingObject.value);
 
-        if (fallingObject.effect == EFFECT.None) return;
+        if (fallingObject.effect == EFFECT.None)
+        {
+            AudioManager.Instance.PlaySFX(pointScoredSFX);
+            return;
+        }
 
         if (fallingObject.effect == EFFECT.Damage && basket.isInvincible)
         {
             bool isAlive = liveBoard.RemoveLife();
+            
+            AudioManager.Instance.PlaySFX(lifeLostSFX);
             
             if (!isAlive)
                 TransitionTo(GameStateType.Ended);
@@ -37,6 +43,8 @@ public partial class GameManager
         if (fallingObject.effect != EFFECT.None || basket.isInvincible) return;
 
         bool isAlive = liveBoard.RemoveLife();
+        
+        AudioManager.Instance.PlaySFX(lifeLostSFX);
             
         if (!isAlive)
             TransitionTo(GameStateType.Ended);
@@ -56,21 +64,25 @@ public partial class GameManager
     {
         basket.GiveInvincible(10);
         invincibilityImage.Enable();
+        AudioManager.Instance.PlaySFX(invincibilityBeginSFX);
     }
 
     public void TurnOnDoubleScore()
     {
         basket.GiveDoubleScore(10);
         twoXImage.Enable();
+        AudioManager.Instance.PlaySFX(doubleScoreBeginSFX);
     }
 
     public void DoubleScoreRanOut()
     {
         twoXImage.Disable();
+        AudioManager.Instance.PlaySFX(doubleScoreEndSFX);
     }
 
     public void InvincibilityRanOut()
     {
         invincibilityImage.Disable();
+        AudioManager.Instance.PlaySFX(invincibilityEndSFX);
     }
 }

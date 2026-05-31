@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallingObjectManager
   spawnRate: 1
-  moveSpeed: 300
+  moveSpeed: 500
   FObjectSos:
   - {fileID: 11400000, guid: 05f6d6eb9eeb25e4bbefc0f8e1ec5c42, type: 2}
   rareObjectSos:
@@ -243,6 +243,13 @@ MonoBehaviour:
   pauseButton: {fileID: 1063101290}
   twoXImage: {fileID: 104489832}
   invincibilityImage: {fileID: 1843712585}
+  music: {fileID: 8300000, guid: 005f6f47ef292094ab68a418532e9400, type: 3}
+  doubleScoreBeginSFX: {fileID: 8300000, guid: 913f8c2edfaabad459768f9f07750881, type: 3}
+  doubleScoreEndSFX: {fileID: 8300000, guid: 482ff9da2a9a12b4e909f56ecd415008, type: 3}
+  invincibilityBeginSFX: {fileID: 8300000, guid: 46989300fd58c1348b0dda13914afec0, type: 3}
+  invincibilityEndSFX: {fileID: 8300000, guid: fc0502b0276893e46b9dfc810ed2df7b, type: 3}
+  pointScoredSFX: {fileID: 8300000, guid: 99f5e82dd3280574bb50689e4f998e28, type: 3}
+  lifeLostSFX: {fileID: 8300000, guid: 16a7820b565796a44a9d996cb25d52ff, type: 3}
   gameTime: 60
   ScreenEdgePadding: 50
 --- !u!1 &499450864
