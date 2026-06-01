@@ -5,8 +5,9 @@ public class FallingObjectManager : MonoBehaviour, IGameObj
     [Tooltip("Spawn per second")]
     [SerializeField] private float spawnRate;
     [Tooltip("Pixels per second")]
-    [SerializeField] private float moveSpeed;
-
+    [SerializeField] private float startSpeed;
+    [Tooltip("Pixels per second")]
+    [SerializeField] private float endSpeed;
     
     [SerializeField] private FallingObjectSO[] FObjectSos;
     [SerializeField] private FallingObjectSO[] rareObjectSos;
@@ -39,6 +40,11 @@ public class FallingObjectManager : MonoBehaviour, IGameObj
     
     private void UpdateFOs()
     {
+        float gameProgress =
+            Mathf.InverseLerp(GameManager.Instance.gameTime, 0, GameManager.Instance.timerBoard.timer);
+            
+        float moveSpeed = Mathf.Lerp(startSpeed, endSpeed, gameProgress);
+        
         foreach (FallingObject fallingObject in fallingObjects)
         {
             if(!fallingObject.isActive) continue;

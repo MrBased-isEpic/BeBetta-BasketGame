@@ -184,7 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallingObjectManager
   spawnRate: 1
-  moveSpeed: 500
+  startSpeed: 500
+  endSpeed: 1500
   FObjectSos:
   - {fileID: 11400000, guid: 05f6d6eb9eeb25e4bbefc0f8e1ec5c42, type: 2}
   rareObjectSos:
@@ -1499,7 +1500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1843712582
 RectTransform:
   m_ObjectHideFlags: 0

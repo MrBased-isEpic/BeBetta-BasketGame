@@ -5,8 +5,8 @@ public class TimerBoard : MonoBehaviour, IGameObj
 {
     [SerializeField] private TextMeshProUGUI timerText;
 
-    private float timer;
-    
+    public float timer { get; private set; }
+
     public void GStart()
     {
         timer = GameManager.Instance.gameTime;
