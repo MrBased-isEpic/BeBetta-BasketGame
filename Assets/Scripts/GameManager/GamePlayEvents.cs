@@ -13,7 +13,8 @@ public partial class GameManager
         if (fallingObject.effect == EFFECT.None)
         {
             AudioManager.Instance.PlaySFX(pointScoredSFX);
-            return;
+            basket.CollectPoint();
+            return; 
         }
 
         if (fallingObject.effect == EFFECT.Damage && !basket.isInvincible)

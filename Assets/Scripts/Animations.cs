@@ -298,6 +298,29 @@ public class Animations
 
         targetText.text = content;
     }
+    
+    public static IEnumerator LerpTextNumber(TextMeshProUGUI targetText, int startNumber, int endNumber, float duration = 1, Eases ease = Eases.None)
+    {
+        EaseFunction easeFunc = GetEaseFunction(ease);
+
+        float time = 0;
+        float progress;
+
+        while (time <= duration)
+        {
+            time += Time.deltaTime;
+
+            progress = Mathf.InverseLerp(0, duration, time);
+            progress = easeFunc(progress);
+
+            targetText.text = ((int)Mathf.Lerp(startNumber, endNumber, progress)).ToString();
+
+            yield return null;
+        }
+
+        targetText.text = endNumber.ToString();
+    }
+    
 
     public static IEnumerator LerpVolume(AudioSource audioSource, float volume, float duration = 1, Eases ease = Eases.None)
     {

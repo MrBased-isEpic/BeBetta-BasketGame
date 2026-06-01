@@ -24,6 +24,18 @@ public class AudioManager : MonoBehaviour
     {
         sources = GetComponents<AudioSource>();
     }
+
+    public void SetMasterVolume(float volume)
+    {
+        int musicSourceIndex = sources[0].isPlaying ? 0 : 1;
+        AudioSource newSource = sources[musicSourceIndex];
+        
+        newSource.volume = 1;
+        
+        masterVolume = volume;
+        
+        newSource.volume = volume * masterVolume;
+    }
     
     public void PlayMusic(AudioClip clip, float volume = 1)
     {

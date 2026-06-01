@@ -1,9 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 public class Basket : MonoBehaviour, IGameObj
 {
     public float halfWidth {get; private set; }
     public RectTransform _basketVisual;
+    
+    private Coroutine animationRoutine;
     
     #region Powerups
     
@@ -59,5 +62,29 @@ public class Basket : MonoBehaviour, IGameObj
         UpdatePowerupTimers();
     }
 
+    public void CollectPoint()
+    {
+        if (animationRoutine != null)
+        {
+            StopCoroutine(animationRoutine);
+            transform.localScale = Vector3.one;
+        }
+        
+        animationRoutine = StartCoroutine(TwitchTransform(transform, .1f, .1f));
+    }
+
+    public IEnumerator TwitchTransform(Transform target, float strength = .2f, float duration = 1)
+    {
+        yield return StartCoroutine(Animations.ScaleTransform(target,
+            new Vector3(1+strength, 1-strength, 1), duration/2));
+        
+        yield return StartCoroutine(Animations.ScaleTransform(target,
+            new Vector3(1-strength, 1+strength, 1), duration/2));
+        
+        yield return StartCoroutine(Animations.ScaleTransform(target,
+            Vector3.one, duration, Eases.EaseInCubic));
+
+        animationRoutine = null;
+    }
     
 }

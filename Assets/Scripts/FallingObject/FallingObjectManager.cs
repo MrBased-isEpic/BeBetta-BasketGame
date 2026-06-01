@@ -41,7 +41,7 @@ public class FallingObjectManager : MonoBehaviour, IGameObj
     {
         foreach (FallingObject fallingObject in fallingObjects)
         {
-            if(!fallingObject.gameObject.activeSelf) continue;
+            if(!fallingObject.isActive) continue;
             
             fallingObject.Move(moveSpeed);
             
@@ -76,7 +76,7 @@ public class FallingObjectManager : MonoBehaviour, IGameObj
     {
         foreach (FallingObject fallingObject in fallingObjects)
         {
-            if (!fallingObject.gameObject.activeSelf) continue;
+            if (!fallingObject.isActive) continue;
 
             if (fallingObject.hasFallen)
             {
@@ -89,7 +89,7 @@ public class FallingObjectManager : MonoBehaviour, IGameObj
     {
         foreach (FallingObject fallingObject in fallingObjects)
         {
-            if (fallingObject.gameObject.activeSelf) continue;
+            if (!fallingObject.isSpawnable) continue;
                 
             float random =  Random.Range(0f, 1f);
             FallingObjectSO SO;

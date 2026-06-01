@@ -25,7 +25,9 @@ public class GameOverPage : Page
 
     public override void Show()
     {
-        scoreText.text = $"Score : {GameManager.Instance.scoreBoard.score.ToString()}";
+        StartCoroutine(Animations.
+            LerpTextNumber(scoreText, 0, 
+                GameManager.Instance.scoreBoard.score, 1f, Eases.EaseOutCubic));
         
         base.Show();
     }
